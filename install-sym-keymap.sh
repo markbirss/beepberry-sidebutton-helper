@@ -5,7 +5,7 @@ apt-get -yyq install pigpio tmux
 git clone https://github.com/larsks/gpio-watch.git
 cd gpio-watch
 make
-make install
+sudo make install
 cd ..
 rm -rf gpio-watch
 mkdir -p /etc/gpio-scripts
@@ -92,8 +92,8 @@ ExecStart=pigs w 17 1
 [Install]
 WantedBy=multi-user.target
 EOF
-systemctl enable --now sym-keymap-pigpiod.service
-systemctl enable --now sym-keymap.service
-systemctl enable --now sym-keymap-singler.service
+sudo systemctl enable --now sym-keymap-pigpiod.service
+sudo systemctl enable --now sym-keymap.service
+sudo systemctl enable --now sym-keymap-singler.service
 
 echo "!! it worked. you should be able to press the button on the side and see a map of the hidden sym keyboard layer. this configuration should survive a restart. if it doesn't work, or stops working, you should try to bug @salsadrinker on the discord, but i'm not making any promises about support. have fun, i hope this works for you!"
